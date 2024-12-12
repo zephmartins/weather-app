@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <div class="card">
+        <div class="search">
+            <form  id="myForm" method="post" >
+                <input type="text" placeholder="Enter city name" name="location" >
+                <button id="get" type="submit" formaction="/weather"> <img src="/img/magnifying-glass-solid.svg" alt=""></button>
+            </form>
+        </div>
+        <div class="weather">
+            <img src="/img/images Background Removed.png" alt="" class="weather-icon">
+
+            <% if (locals.name) {%>
+                 <h1 class="temp"><%= temp %>°C</h1>
+                 <h2 class="city"><%= name %></h2>
+                 <h3 class="des"><%= description %></h3>
+                 <div class="log">
+                    <h3>long: <%= lon %> </h3>
+                    <h3>lat: <%= lat %> </h3>
+                </div>
+                
+                 <%  } else {%>
+                <h2>Enter city name</h2>
+                <div class="log">
+                    <h3>long: </h3>
+                    <h3>lat: </h3>
+                </div>
+                <%  } %>
+
+               
+           
+            
+            <div class="details">
+                <div class="col">
+                    <img src="/img/humidity2 Background Removed.png" class="hum">
+                    <div>
+                        <% if (locals.name) { %>
+                            <p class="wind"><%= humidity %></p>
+                            <p>Humidity</p>
+                        <% } else {%>
+                            <p>Humidity</p>
+                            <%  } %>
+                    </div>
+                </div>
+                <div class="col">
+                    <img src="/img/wind Background Removed.png">
+                    <div>
+
+                        <% if (locals.name) { %>
+                            <p class="wind"><%= wind %></p>
+                            <p>Wind Speed</p>
+                        <% } else {%>
+                            <p>Wind Speed</p>
+                            <%  } %>
+                        
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
